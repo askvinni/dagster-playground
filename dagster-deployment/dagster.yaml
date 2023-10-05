@@ -20,12 +20,6 @@ run_coordinator:
       - key: "dagster/backfill"
         limit: 10
 
-run_launcher:
-  module: dagster_aws.ecs
-  class: EcsRunLauncher
-  config:
-    include_sidecars: false
-
 storage:
   postgres:
     postgres_db:
