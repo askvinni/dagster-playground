@@ -1,0 +1,49 @@
+{
+  "id": "foo",
+  "threadId": "bar",
+  "labelIds": [
+    "INBOX"
+  ],
+  "snippet": "",
+  "payload": {
+    "partId": "",
+    "mimeType": "multipart/mixed",
+    "filename": "",
+    "headers": [
+      {
+        "name": "Delivered-To",
+        "value": "some-address@example.com"
+      }
+    ],
+    "body": {
+      "size": 0
+    },
+    "parts": [
+      {
+        "partId": "1",
+        "mimeType": "application/octet-stream",
+        "filename": "some attachment.xml",
+        "headers": [
+          {
+            "name": "Content-Type",
+            "value": "application/octet-stream"
+          },
+          {
+            "name": "Content-Transfer-Encoding",
+            "value": "base64"
+          },
+          {
+            "name": "Content-Disposition",
+            "value": "attachment;  filename=\"some attachment.xml\""
+          }
+        ],
+        "body": {
+          "attachmentId": "someattachmentid"
+        }
+      }
+    ]
+  },
+  "sizeEstimate": 2,
+  "historyId": "1",
+  "internalDate": "3"
+}

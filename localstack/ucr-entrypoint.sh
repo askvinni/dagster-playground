@@ -1,0 +1,1 @@
+dagster code-server start -h 0.0.0.0 -p 4266 --package-name $1

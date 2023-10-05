@@ -1,0 +1,13 @@
+postgres-dagster
+.idea
+edr
+elementary.json
+elementary_-_*
+.env
+.secret*
+storage
+.DS_Store
+.coverage
+.snowflake_user
+.snowflake_pass
+__pycache__

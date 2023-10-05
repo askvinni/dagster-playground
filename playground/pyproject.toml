@@ -1,0 +1,26 @@
+[tool.poetry]
+name = "dp-rd-etlhub"
+version = "0.2.0"
+description = ""
+authors = ["Vinnie <vdalpiccol@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+pandas = "^1.4.3"
+xmltodict = "^0.13.0"
+dagster-utils = {path = "../dagster-utils", develop = true}
+openpyxl = "^3.0.10"
+
+[tool.poetry.group.dev.dependencies]
+dagit = "1.4.12"
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+pytest-mock = "^3.10.0"
+black = "^22.6.0"
+isort = "^5.10.1"
+moto = "^4.0.11"
+buildkite-test-collector = "^0.1.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

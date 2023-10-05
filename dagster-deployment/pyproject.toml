@@ -1,0 +1,20 @@
+[tool.poetry]
+name = "dagster-deployment"
+version = "0.2.0"
+description = ""
+authors = ["Vinnie <vdalpiccol@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+dagit = "1.4.12"
+dagster = "1.4.12"
+dagster-aws = "0.20.12"
+dagster-postgres = "0.20.12"
+dagster-slack = "0.20.12"
+grpcio = ">=1.44.0,<1.48.0"
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

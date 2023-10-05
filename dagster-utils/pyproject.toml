@@ -1,0 +1,34 @@
+[tool.poetry]
+name = "dagster_utils"
+version = "0.2.0"
+description = "Utils for working with dagster."
+authors = ["Vinnie <vdalpiccol@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.9"
+boto3 = "^1.26.30"
+dagster = "1.4.12"
+dagster-aws = "0.20.12"
+dagster-postgres = "0.20.12"
+dagster-slack = "0.20.12"
+pandas = "^1.4.3"
+snowflake-sqlalchemy = "^1.4.5"
+sqlalchemy = "1.4.45"
+pyarrow = "^8.0.0"
+pydantic = "^1.10.2"
+# cryptography = "36.0.2" # required pin to work with boto3 update, should be reviewed
+grpcio = ">=1.44.0,<1.48.0"
+
+[tool.poetry.group.dev.dependencies]
+dagit = "1.4.12"
+pytest = "^7.1.2"
+pytest-cov = "^3.0.0"
+pytest-mock = "^3.10.0"
+black = "^22.6.0"
+isort = "^5.10.1"
+moto = "^4.0.11"
+buildkite-test-collector = "^0.1.3"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"

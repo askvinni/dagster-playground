@@ -1,0 +1,57 @@
+{
+  "result": 0,
+  "metadata": {
+    "contents": [
+      {
+        "name": "2022",
+        "created": "Sat, 31 Dec 2022 01:01:01 +0000",
+        "modified": "Sat, 31 Dec 2022 01:01:01 +0000",
+        "comments": 0,
+        "folderid": 12345,
+        "contents": [
+          {
+            "name": "some_folder",
+            "created": "Sat, 31 Dec 2022 01:01:01 +0000",
+            "modified": "Sat, 31 Dec 2022 01:01:01 +0000",
+            "isfolder": true,
+            "folderid": 12356,
+            "contents": [
+              {
+                "name": "log_mock",
+                "created": "Sat, 31 Dec 2022 01:01:01 +0000",
+                "modified": "Sat, 31 Dec 2022 01:01:01 +0000",
+                "isfolder": true,
+                "folderid": 12356
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "2023",
+        "created": "Sat, 31 Dec 2022 01:01:01 +0000",
+        "modified": "Sat, 31 Dec 2022 01:01:01 +0000",
+        "comments": 0,
+        "folderid": 12345,
+        "contents": [
+          {
+            "name": "some_folder",
+            "created": "Sat, 31 Dec 2022 01:01:01 +0000",
+            "modified": "Sat, 31 Dec 2022 01:01:01 +0000",
+            "isfolder": true,
+            "folderid": 12356,
+            "contents": [
+              {
+                "name": "log_mock",
+                "created": "Sat, 31 Dec 2022 01:01:01 +0000",
+                "modified": "Sat, 31 Dec 2022 01:01:01 +0000",
+                "isfolder": true,
+                "folderid": 12356
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

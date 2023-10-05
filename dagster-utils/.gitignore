@@ -1,0 +1,10 @@
+__pycache__
+.idea
+.pytest_cache
+.venv
+
+testable_repo.yaml
+testable_repo.py
+workspace.yaml
+.coverage
+htmlcov

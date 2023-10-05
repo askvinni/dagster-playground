@@ -1,0 +1,14 @@
+{
+  "result": 0,
+  "metadata": {
+    "contents": [
+      {
+        "name": "log_mock",
+        "created": "Sat, 31 Dec 2022 01:01:01 +0000",
+        "modified": "Sat, 31 Dec 2022 01:01:01 +0000",
+        "isfolder": false,
+        "folderid": 12356
+      }
+    ]
+  }
+}

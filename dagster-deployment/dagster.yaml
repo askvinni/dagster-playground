@@ -1,0 +1,40 @@
+---
+python_logs:
+  dagster_handler_config:
+    handlers:
+      infologHandler:
+        class: logging.StreamHandler
+        level: INFO
+        stream: ext://sys.stdout
+
+scheduler:
+  module: dagster.core.scheduler
+  class: DagsterDaemonScheduler
+
+run_coordinator:
+  module: dagster.core.run_coordinator
+  class: QueuedRunCoordinator
+  config:
+    max_concurrent_runs: 25
+    tag_concurrency_limits:
+      - key: "dagster/backfill"
+        limit: 10
+
+run_launcher:
+  module: dagster_aws.ecs
+  class: EcsRunLauncher
+  config:
+    include_sidecars: false
+
+storage:
+  postgres:
+    postgres_db:
+      hostname:
+        env: DAGSTER_POSTGRES_HOSTNAME
+      username:
+        env: DAGSTER_POSTGRES_USER
+      password:
+        env: DAGSTER_POSTGRES_PASSWORD
+      db_name:
+        env: DAGSTER_POSTGRES_DB
+      port: 5432

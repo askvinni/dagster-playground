@@ -1,0 +1,86 @@
+---
+version: "3.9"
+
+x-app-vars:
+  &default-app-vars
+  DAGSTER_POSTGRES_HOSTNAME: "postgresql"
+  DAGSTER_POSTGRES_DB: "postgres_db"
+  DAGSTER_POSTGRES_USER: "postgres_user"
+  DAGSTER_POSTGRES_PASSWORD: "postgres_password"
+  AWS_DEFAULT_REGION: eu-central-1
+  AWS_DEFAULT_PROFILE: dp_dev
+  DAGSTER_DEPLOYMENT: dev
+
+services:
+  # ----------------------------------------- #
+  #                  Dagster
+  # ----------------------------------------- #
+  dagster:
+    build:
+      context: dagster-deployment
+      dockerfile: Dockerfile
+    container_name: dagster-daemon
+    restart: on-failure
+    command: dagster-daemon run
+    environment:
+      << : *default-app-vars
+    depends_on:
+      - postgresql
+    volumes:
+      - ./localstack/dagster.yaml:/opt/dagster/dagster_home/dagster.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/io_manager_storage:/tmp/io_manager_storage
+
+  dagit:
+    build:
+      context: dagster-deployment
+      dockerfile: Dockerfile
+    container_name: dagit
+    restart: on-failure
+    command: dagit -h 0.0.0.0 -p 3000
+    ports:
+      - 3000:3000
+    environment:
+      << : *default-app-vars
+    depends_on:
+      - postgresql
+    volumes:
+      - ./localstack/dagster.yaml:/opt/dagster/dagster_home/dagster.yaml
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /tmp/io_manager_storage:/tmp/io_manager_storage
+
+  # ----------------------------------------- #
+  #                 Storage
+  # ----------------------------------------- #
+  postgresql:
+    image: postgres:11
+    container_name: postgresql
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_DB: "postgres_db"
+      POSTGRES_USER: "postgres_user"
+      POSTGRES_PASSWORD: "postgres_password"
+    volumes:
+      - ./postgres-dagster:/var/lib/postgresql/data
+
+  # ----------------------------------------- #
+  #                   UCR
+  # ----------------------------------------- #
+  playground:
+    build:
+      context: .
+      dockerfile: playground/Dockerfile
+    container_name: playground.repo.dagster
+    command: ['/bin/sh', '/localstack/ucr-entrypoint.sh', 'playground']
+    restart: always
+    environment:
+      << : *default-app-vars
+    volumes:
+      - ./localstack/ucr-entrypoint.sh:/localstack/ucr-entrypoint.sh
+      - $HOME/.aws:/root/.aws:ro
+      - ./dagster-utils/dagster_utils:/app/venv/lib/python3.9/site-packages/dagster_utils
+      - ./playground:/opt/dagster/dagster_home/
+
+volumes:
+  postgresql:

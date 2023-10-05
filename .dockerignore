@@ -1,0 +1,16 @@
+**/__pycache__/**/*
+**/.idea/**/*
+**/.pytest_cache/**/*
+**/.venv/**/*
+**/workspace.yaml/**/*
+**/dbt_packages/**/*
+**/dbt_modules/**/*
+**/logs/**/*
+**/.buildkite/**/*
+.env
+.secret*
+local_stack.sh
+local_stack
+postgres-dagster
+.snowflake_user
+.snowflake_pass
